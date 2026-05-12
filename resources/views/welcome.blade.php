@@ -3,10 +3,12 @@
 @section('title', 'Pasrah.in - Your Campus Survival Kit')
 
 @section('content')
-<div class="flex flex-col flex-1 relative overflow-hidden">
-    {{-- Background Blobs --}}
-    <div class="bg-blob top-[-100px] left-[-100px]"></div>
-    <div class="bg-blob bottom-[-100px] right-[-100px]" style="animation-delay: -5s; background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, rgba(99,102,241,0.05) 50%, transparent 100%);"></div>
+<div class="flex flex-col flex-1 relative">
+    {{-- Background Blobs (Wrapped in overflow-hidden to prevent spilling) --}}
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0 rounded-[2rem]">
+        <div class="bg-blob top-[-100px] left-[-100px]"></div>
+        <div class="bg-blob bottom-[-100px] right-[-100px]" style="animation-delay: -5s; background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, rgba(99,102,241,0.05) 50%, transparent 100%);"></div>
+    </div>
 
     {{-- Section 1: Hero --}}
     <div class="min-h-[calc(100vh-10rem)] flex flex-col justify-center p-8 md:p-12 lg:p-16 border-b border-slate-800/50 relative z-10">

@@ -72,10 +72,10 @@
 <body class="text-white font-sans antialiased min-h-screen p-4 md:p-6 lg:p-8 flex justify-center">
 
     {{-- Main Container Box --}}
-<div class="w-full max-w-7xl bg-[#0f172a] md:bg-[#111827] border border-slate-800 rounded-[2rem] shadow-2xl flex flex-col min-h-[calc(100vh-4rem)] relative overflow-clip">        
+<div class="w-full max-w-7xl bg-[#0f172a] md:bg-[#111827] border border-slate-800 rounded-[2rem] shadow-2xl flex flex-col min-h-[calc(100vh-4rem)] relative">        
         {{-- Navigation --}}
         @if(!isset($hideNavbar) || !$hideNavbar)
-<nav class="border-b border-slate-800/60 bg-[#111827]/80 backdrop-blur-md px-6 md:px-10 py-5 flex flex-wrap items-center justify-between gap-4 sticky top-0 z-[60]">            <div class="flex items-center gap-8 lg:gap-16">
+<nav class="border-b border-slate-800/60 bg-[#111827]/80 backdrop-blur-md px-6 md:px-10 py-5 flex flex-wrap items-center justify-between gap-4 sticky top-0 z-[60] rounded-t-[2rem]">            <div class="flex items-center gap-8 lg:gap-16">
                 {{-- Logo --}}
                 <a href="/" class="flex items-center gap-4 group">
                     <img src="{{ asset('logo lengkap.png') }}" alt="Pasrah.in" class="h-14 w-auto drop-shadow-[0_0_10px_rgba(99,102,241,0.2)]">
@@ -146,7 +146,7 @@
         </main>
 
         {{-- Footer --}}
-        <footer class="bg-[#020617] border-t border-slate-800/60 pt-16 pb-8 relative overflow-hidden">
+        <footer class="bg-[#020617] border-t border-slate-800/60 pt-16 pb-8 relative overflow-hidden rounded-b-[2rem]">
             <div class="max-w-7xl mx-auto px-8 relative z-10">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                     {{-- Brand --}}
