@@ -28,30 +28,30 @@
             <h3 class="text-sm font-semibold text-indigo-300 mb-6 tracking-wide">How It Works</h3>
             <div class="space-y-6">
                 <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-[#1e293b] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center flex-shrink-0 mt-0.5 border border-indigo-500/30">
                         <span class="text-xs font-bold text-indigo-300">1</span>
                     </div>
                     <div>
-                        <h4 class="text-sm font-bold text-white mb-1">Pilih Layanan & Isi Detail</h4>
-                        <p class="text-[13px] text-slate-400 leading-snug">Tentukan apa yang kamu butuhkan dan harganya.</p>
+                        <h4 class="text-sm font-bold text-white mb-1">Pesan & Bayar (Aman)</h4>
+                        <p class="text-[13px] text-slate-400 leading-snug">Isi detail dan bayar total biaya (barang + jasa) di awal. Dana aman ditahan sistem.</p>
                     </div>
                 </div>
                 <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-[#1e293b] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center flex-shrink-0 mt-0.5 border border-indigo-500/30">
                         <span class="text-xs font-bold text-indigo-300">2</span>
                     </div>
                     <div>
-                        <h4 class="text-sm font-bold text-white mb-1">Mitra Menerima Pesanan</h4>
-                        <p class="text-[13px] text-slate-400 leading-snug">Mitra terdekat akan mengambil pesananmu.</p>
+                        <h4 class="text-sm font-bold text-white mb-1">Mitra Menjalankan Tugas</h4>
+                        <p class="text-[13px] text-slate-400 leading-snug">Mitra menerima pesanan dan membelikan barang atau menjalankan jasa untukmu.</p>
                     </div>
                 </div>
                 <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-[#1e293b] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center flex-shrink-0 mt-0.5 border border-indigo-500/30">
                         <span class="text-xs font-bold text-indigo-300">3</span>
                     </div>
                     <div>
-                        <h4 class="text-sm font-bold text-white mb-1">Selesai & Bayar</h4>
-                        <p class="text-[13px] text-slate-400 leading-snug">Barang sampai, bayar sesuai kesepakatan.</p>
+                        <h4 class="text-sm font-bold text-white mb-1">Konfirmasi & Cairkan</h4>
+                        <p class="text-[13px] text-slate-400 leading-snug">Setelah beres, klik "Konfirmasi Terima" agar dana diteruskan ke saldo Mitra.</p>
                     </div>
                 </div>
             </div>
