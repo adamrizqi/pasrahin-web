@@ -13,6 +13,7 @@ class MitraController extends Controller
     public function dashboard()
     {
         $pendingOrders = Order::where('status', 'pending')
+            ->where('payment_status', 'paid')
             ->with('customer')
             ->latest()
             ->get();
