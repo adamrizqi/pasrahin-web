@@ -146,7 +146,7 @@
         </main>
 
         {{-- Footer --}}
-        <footer class="bg-[#020617] border-t border-slate-800/60 pt-16 pb-8 relative overflow-hidden rounded-b-[2rem]">
+        <footer class="border-t border-slate-800/60 pt-16 pb-8 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-8 relative z-10">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                     {{-- Brand --}}

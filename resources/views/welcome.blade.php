@@ -5,7 +5,7 @@
 @section('content')
 <div class="flex flex-col flex-1 relative">
     {{-- Background Blobs (Wrapped in overflow-hidden to prevent spilling) --}}
-    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0 rounded-[2rem]">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div class="bg-blob top-[-100px] left-[-100px]"></div>
         <div class="bg-blob bottom-[-100px] right-[-100px]" style="animation-delay: -5s; background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, rgba(99,102,241,0.05) 50%, transparent 100%);"></div>
     </div>
@@ -57,18 +57,18 @@
             {{-- Right: Illustration --}}
             <div class="flex-1 w-full max-w-[550px] relative group">
                 <div class="absolute inset-0 bg-indigo-500/20 blur-[120px] rounded-full animate-pulse"></div>
-                <div class="relative animate-float">
-                    <img src="{{ asset('campus_delivery_illustration_1778618604883.png') }}" alt="Pasrahin Illustration" class="w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.5)] rounded-[3rem] border border-slate-700/30">
-                    {{-- Floating badge over illustration --}}
-                    <div class="absolute -top-4 -right-4 bg-[#1e293b]/90 backdrop-blur-md border border-slate-700 p-4 rounded-2xl shadow-2xl animate-bounce-slow">
-                        <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            </div>
-                            <div>
-                                <div class="text-[10px] font-bold text-white uppercase">Sangat Cepat</div>
-                                <div class="text-[9px] text-slate-400 italic">Pesanan Terkirim</div>
-                            </div>
+                <div class="relative rounded-[3rem] overflow-hidden border border-slate-700/30 drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]">
+                    <img src="{{ asset('delivery_dark_bg_1778622506122.png') }}" alt="Pasrahin Illustration" class="w-full h-auto scale-[1.02]">
+                </div>
+                {{-- Floating badge over illustration --}}
+                <div class="absolute -top-4 -right-4 bg-[#1e293b]/90 backdrop-blur-md border border-slate-700 p-4 rounded-2xl shadow-2xl animate-bounce-slow z-20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-[10px] font-bold text-white uppercase">Sangat Cepat</div>
+                            <div class="text-[9px] text-slate-400 italic">Pesanan Terkirim</div>
                         </div>
                     </div>
                 </div>
