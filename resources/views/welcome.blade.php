@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Pasrahin - Your Campus Survival Kit')
+@section('title', 'Pasrah.in - Your Campus Survival Kit')
 
 @section('content')
 <div class="grid lg:grid-cols-2 gap-12 p-8 md:p-12 lg:p-16 flex-1">

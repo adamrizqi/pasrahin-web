@@ -11,6 +11,7 @@
 
         <div class="relative z-10">
             <div class="text-center mb-8">
+                <img src="{{ asset('logo.png') }}" alt="Logo" class="h-20 w-auto mx-auto mb-6 drop-shadow-[0_0_10px_rgba(99,102,241,0.2)]">
                 <h1 class="text-2xl font-extrabold text-white mb-2 tracking-tight">Pasrah.in</h1>
                 <p class="text-xs text-slate-400">Join the secure student ecosystem</p>
             </div>

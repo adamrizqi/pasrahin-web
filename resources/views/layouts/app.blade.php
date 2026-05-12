@@ -42,15 +42,15 @@
         <nav class="border-b border-slate-800/60 bg-[#111827]/80 backdrop-blur-md px-6 md:px-10 py-5 flex flex-wrap items-center justify-between gap-4 relative z-10">
             <div class="flex items-center gap-8 lg:gap-16">
                 {{-- Logo --}}
-                <a href="/" class="flex items-center gap-3 group">
-                    <img src="{{ asset('logo.png') }}" alt="Logo" class="h-8 w-auto">
-                    <span class="text-lg font-bold text-white tracking-tight group-hover:text-indigo-100 transition-colors">
-                        Pasrah.in <span class="text-slate-500 font-normal">| Home</span>
+                <a href="/" class="flex items-center gap-4 group">
+                    <img src="{{ asset('logo lengkap.png') }}" alt="Pasrah.in" class="h-14 w-auto drop-shadow-[0_0_10px_rgba(99,102,241,0.2)]">
+                    <span class="text-lg font-bold text-white tracking-tight group-hover:text-indigo-100 transition-colors hidden sm:inline-block border-l border-slate-800 pl-4">
+                        <span class="text-slate-500 font-normal"> Home</span>
                     </span>
                 </a>
                 
-                {{-- Links (Hidden on small screens) --}}
-                <div class="hidden md:flex items-center gap-8">
+                {{-- Links --}}
+                <div class="flex items-center gap-4 md:gap-8">
                     <a href="/" class="text-sm font-medium {{ request()->is('/') ? 'text-indigo-400 border-b-2 border-indigo-400 pb-1 -mb-[3px]' : 'text-slate-400 hover:text-white transition-colors' }}">Services</a>
                     
                     @auth
