@@ -13,11 +13,7 @@
         <div class="p-6 flex-1 flex flex-col">
             {{-- Brand --}}
             <div class="flex items-center gap-3 mb-8">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 p-0.5">
-                    <div class="w-full h-full bg-[#111827] rounded-[10px] flex items-center justify-center">
-                        <div class="w-3 h-3 bg-gradient-to-br from-indigo-400 to-purple-400 rounded-sm"></div>
-                    </div>
-                </div>
+                <img src="{{ asset('logo.png') }}" alt="Logo" class="h-10 w-auto">
                 <div>
                     <h2 class="text-sm font-bold text-white tracking-tight leading-tight">Mitra Dashboard</h2>
                     <p class="text-[10px] text-slate-400 font-medium">Partner Portal</p>
