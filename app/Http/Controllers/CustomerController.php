@@ -8,14 +8,23 @@ use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
 {
-    public function dashboard()
+    public function dashboard(Request $request)
     {
-        $orders = Order::where('customer_id', Auth::id())
-            ->with('mitra')
-            ->latest()
-            ->get();
+        $query = Order::where('customer_id', Auth::id())->with('mitra')->latest();
 
-        return view('customer.dashboard', compact('orders'));
+        $status = $request->query('status', 'all');
+
+        if ($status === 'unpaid') {
+            $query->where('payment_status', 'unpaid');
+        } elseif ($status === 'active') {
+            $query->whereIn('status', ['pending', 'in_progress', 'completed'])->where('payment_status', 'paid');
+        } elseif ($status === 'completed') {
+            $query->where('status', 'paid_to_mitra');
+        }
+
+        $orders = $query->get();
+
+        return view('customer.dashboard', compact('orders', 'status'));
     }
 
     public function paymentSuccess(Order $order)

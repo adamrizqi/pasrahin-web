@@ -9,13 +9,43 @@
         <p class="text-sm text-slate-400">Pantau status pesanan dan lakukan pembayaran di sini.</p>
     </div>
 
+    {{-- Tabs --}}
+    <div class="flex items-center gap-2 mb-8 overflow-x-auto pb-2 scrollbar-hide">
+        <a href="{{ route('customer.dashboard', ['status' => 'all']) }}" 
+           class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap {{ $status === 'all' ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/20' : 'bg-slate-800/50 text-slate-400 hover:text-white border border-slate-700/50' }}">
+            Semua Pesanan
+        </a>
+        <a href="{{ route('customer.dashboard', ['status' => 'unpaid']) }}" 
+           class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap {{ $status === 'unpaid' ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/20' : 'bg-slate-800/50 text-slate-400 hover:text-white border border-slate-700/50' }}">
+            Belum Bayar
+        </a>
+        <a href="{{ route('customer.dashboard', ['status' => 'active']) }}" 
+           class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap {{ $status === 'active' ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/20' : 'bg-slate-800/50 text-slate-400 hover:text-white border border-slate-700/50' }}">
+            Sedang Proses
+        </a>
+        <a href="{{ route('customer.dashboard', ['status' => 'completed']) }}" 
+           class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap {{ $status === 'completed' ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/20' : 'bg-slate-800/50 text-slate-400 hover:text-white border border-slate-700/50' }}">
+            Sudah Selesai
+        </a>
+    </div>
+
     @if($orders->isEmpty())
         <div class="bg-[#1e293b] border border-slate-700/60 rounded-3xl p-12 text-center">
-            <div class="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center mx-auto mb-4">
-                <span class="text-2xl">📋</span>
+            <div class="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center mx-auto mb-4 text-2xl">
+                @if($status === 'unpaid') 💳 @elseif($status === 'active') 🚚 @elseif($status === 'completed') ✅ @else 📋 @endif
             </div>
-            <h3 class="text-lg font-bold text-white mb-2">Belum ada pesanan</h3>
-            <p class="text-sm text-slate-400 mb-6">Kamu belum pernah memesan layanan apapun.</p>
+            <h3 class="text-lg font-bold text-white mb-2">
+                @if($status === 'unpaid') Tidak ada tagihan
+                @elseif($status === 'active') Tidak ada pesanan aktif
+                @elseif($status === 'completed') Belum ada riwayat selesai
+                @else Belum ada pesanan @endif
+            </h3>
+            <p class="text-sm text-slate-400 mb-6">
+                @if($status === 'unpaid') Semua pesanan kamu sudah dibayar. Mantap!
+                @elseif($status === 'active') Kamu tidak punya pesanan yang sedang berjalan.
+                @elseif($status === 'completed') Pesanan yang sudah selesai akan muncul di sini.
+                @else Kamu belum pernah memesan layanan apapun. @endif
+            </p>
             <a href="/" class="inline-block px-6 py-3 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold rounded-xl shadow-[0_0_15px_rgba(99,102,241,0.3)] transition-all">
                 Pesan Sekarang
             </a>
