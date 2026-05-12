@@ -3,196 +3,259 @@
 @section('title', 'Pasrah.in - Your Campus Survival Kit')
 
 @section('content')
-<div class="grid lg:grid-cols-2 gap-12 p-8 md:p-12 lg:p-16 flex-1">
-    {{-- Left: Hero Text --}}
-    <div class="flex flex-col justify-center max-w-xl">
-        <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] tracking-tight text-white mb-6">
-            Your Campus<br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-purple-300">Survival Kit</span>
-        </h1>
+<div class="flex flex-col flex-1 relative overflow-hidden">
+    {{-- Background Blobs --}}
+    <div class="bg-blob top-[-100px] left-[-100px]"></div>
+    <div class="bg-blob bottom-[-100px] right-[-100px]" style="animation-delay: -5s; background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, rgba(99,102,241,0.05) 50%, transparent 100%);"></div>
 
-        <p class="text-base md:text-lg text-slate-400 mb-8 leading-relaxed">
-            Bantu urusin jastip makanan, print tugas, angkut barang dan lain-lain area UNEJ. Pasrahin aja ke kami!
-        </p>
+    {{-- Section 1: Hero --}}
+    <div class="min-h-[calc(100vh-10rem)] flex flex-col justify-center p-8 md:p-12 lg:p-16 border-b border-slate-800/50 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-16 mb-20">
+            {{-- Left: Hero Text --}}
+            <div class="flex flex-col justify-center flex-1 max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-bold uppercase tracking-wider mb-6 w-fit">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                    </span>
+                    Satu-satunya di Kampus
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-[5rem] font-black leading-[1.05] tracking-tight text-white mb-6">
+                    Your Campus<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 bg-[length:200%_auto] animate-gradient">Survival Kit</span>
+                </h1>
+                <p class="text-base md:text-lg text-slate-400 mb-10 leading-relaxed max-w-lg">
+                    Bantu urusin jastip makanan, print tugas, angkut barang dan lain-lain area UNEJ. <span class="text-indigo-400 font-bold">Pasrah.in</span> aja ke kami! Aman, Cepat, Terpercaya.
+                </p>
+                
+                <div class="flex flex-wrap gap-6 items-center mb-12">
+                    <a href="#services" class="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-2xl shadow-xl shadow-indigo-500/30 transition-all flex items-center gap-3 group">
+                        Mulai Pesan Sekarang
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                    </a>
+                </div>
 
-        <div>
-            <button onclick="document.getElementById('service_type_makanan').focus()" class="px-8 py-3 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold rounded-xl shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all hover:-translate-y-0.5">
-                Pesan Sekarang
-            </button>
+                {{-- Stats --}}
+                <div class="grid grid-cols-3 gap-8 pt-8 border-t border-slate-800/60 max-w-md">
+                    <div>
+                        <div class="text-2xl font-black text-white">1k+</div>
+                        <div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Pesanan</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-black text-white">50+</div>
+                        <div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Mitra Aktif</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-black text-white">15m</div>
+                        <div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Waktu Rata</div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Right: Illustration --}}
+            <div class="flex-1 w-full max-w-[550px] relative group">
+                <div class="absolute inset-0 bg-indigo-500/20 blur-[120px] rounded-full animate-pulse"></div>
+                <div class="relative animate-float">
+                    <img src="{{ asset('campus_delivery_illustration_1778618604883.png') }}" alt="Pasrahin Illustration" class="w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.5)] rounded-[3rem] border border-slate-700/30">
+                    {{-- Floating badge over illustration --}}
+                    <div class="absolute -top-4 -right-4 bg-[#1e293b]/90 backdrop-blur-md border border-slate-700 p-4 rounded-2xl shadow-2xl animate-bounce-slow">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-[10px] font-bold text-white uppercase">Sangat Cepat</div>
+                                <div class="text-[9px] text-slate-400 italic">Pesanan Terkirim</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="w-full h-px bg-slate-800 my-10"></div>
-
-        {{-- How It Works --}}
-        <div>
-            <h3 class="text-sm font-semibold text-indigo-300 mb-6 tracking-wide">How It Works</h3>
-            <div class="space-y-6">
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center flex-shrink-0 mt-0.5 border border-indigo-500/30">
-                        <span class="text-xs font-bold text-indigo-300">1</span>
+        {{-- How It Works (Full Width Below) --}}
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-[#1e293b]/20 border border-slate-700/40 rounded-[2rem] p-8 backdrop-blur-md relative overflow-hidden group hover:bg-[#1e293b]/40 transition-all duration-500">
+                <div class="flex gap-6 items-start">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-500/20 flex items-center justify-center flex-shrink-0 border border-indigo-500/30 group-hover:scale-110 group-hover:bg-indigo-500 group-hover:text-white transition-all">
+                        <span class="text-sm font-bold text-indigo-300 group-hover:text-white">1</span>
                     </div>
                     <div>
-                        <h4 class="text-sm font-bold text-white mb-1">Pesan & Bayar (Aman)</h4>
-                        <p class="text-[13px] text-slate-400 leading-snug">Isi detail dan bayar total biaya (barang + jasa) di awal. Dana aman ditahan sistem.</p>
+                        <h4 class="text-lg font-bold text-white mb-2">Pesan & Bayar</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">Pilih layanan, isi detail, dan bayar dengan aman melalui sistem Escrow Midtrans.</p>
                     </div>
                 </div>
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center flex-shrink-0 mt-0.5 border border-indigo-500/30">
-                        <span class="text-xs font-bold text-indigo-300">2</span>
+            </div>
+            <div class="bg-[#1e293b]/20 border border-slate-700/40 rounded-[2rem] p-8 backdrop-blur-md relative overflow-hidden group hover:bg-[#1e293b]/40 transition-all duration-500">
+                <div class="flex gap-6 items-start">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center flex-shrink-0 border border-purple-500/30 group-hover:scale-110 group-hover:bg-purple-500 group-hover:text-white transition-all">
+                        <span class="text-sm font-bold text-purple-300 group-hover:text-white">2</span>
                     </div>
                     <div>
-                        <h4 class="text-sm font-bold text-white mb-1">Mitra Menjalankan Tugas</h4>
-                        <p class="text-[13px] text-slate-400 leading-snug">Mitra menerima pesanan dan membelikan barang atau menjalankan jasa untukmu.</p>
+                        <h4 class="text-lg font-bold text-white mb-2">Mitra Bergerak</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">Mitra kami yang terverifikasi akan segera menjalankan tugas Anda dengan cepat.</p>
                     </div>
                 </div>
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center flex-shrink-0 mt-0.5 border border-indigo-500/30">
-                        <span class="text-xs font-bold text-indigo-300">3</span>
+            </div>
+            <div class="bg-[#1e293b]/20 border border-slate-700/40 rounded-[2rem] p-8 backdrop-blur-md relative overflow-hidden group hover:bg-[#1e293b]/40 transition-all duration-500">
+                <div class="flex gap-6 items-start">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 flex items-center justify-center flex-shrink-0 border border-emerald-500/30 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                        <span class="text-sm font-bold text-emerald-300 group-hover:text-white">3</span>
                     </div>
                     <div>
-                        <h4 class="text-sm font-bold text-white mb-1">Konfirmasi & Cairkan</h4>
-                        <p class="text-[13px] text-slate-400 leading-snug">Setelah beres, klik "Konfirmasi Terima" agar dana diteruskan ke saldo Mitra.</p>
+                        <h4 class="text-lg font-bold text-white mb-2">Selesai & Konfirmasi</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">Konfirmasi pesanan diterima, dan dana otomatis dicairkan ke saldo Mitra.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    {{-- Right: Order Form --}}
-    <div class="flex items-center justify-center lg:justify-end mt-8 lg:mt-0">
-        <div class="w-full max-w-[500px] bg-[#1e293b] border border-slate-700/60 rounded-3xl p-6 md:p-8 shadow-2xl">
-            <h2 class="text-xl font-bold text-white mb-6">Pesan Layanan</h2>
+    {{-- Section 2: Services Form --}}
+    <div id="services" class="p-8 md:p-16 lg:p-24 flex flex-col items-center relative">
+        {{-- Section Title --}}
+        <div class="text-center mb-16 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">Pilih Layanan</h2>
+            <p class="text-slate-400 max-w-md mx-auto text-sm">Butuh bantuan apa hari ini? Mitra kami siap membantu kebutuhan kampusmu dengan aman dan cepat.</p>
+        </div>
 
-            <form action="{{ route('orders.store') }}" method="POST" class="space-y-5">
+        {{-- The Form Card --}}
+        <div class="w-full max-w-3xl bg-slate-900/40 backdrop-blur-2xl border border-slate-700/50 rounded-[3rem] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative z-10">
+            {{-- Decorative glow behind form --}}
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-indigo-500/10 blur-[100px] rounded-full"></div>
+            <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-500/10 blur-[100px] rounded-full"></div>
+
+            <form action="{{ route('orders.store') }}" method="POST" class="space-y-10 relative">
                 @csrf
 
-                {{-- Service Type --}}
+                {{-- Step 1: Service Selection --}}
                 <div>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <label class="relative cursor-pointer">
-                            <input type="radio" name="service_type" id="service_type_makanan" value="makanan" class="peer sr-only" required checked onchange="toggleCustomService()">
-                            <div class="flex flex-col items-center justify-center gap-2 h-20 rounded-xl border border-slate-700 bg-[#0f172a]/50 peer-checked:border-indigo-500 peer-checked:bg-indigo-500/10 hover:bg-[#0f172a] transition-all">
-                                <svg class="w-6 h-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                                <span class="text-[11px] font-medium text-slate-400 peer-checked:text-indigo-200 text-center">Jastip Makanan</span>
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-500 text-white text-[10px] font-black flex items-center justify-center">1</span>
+                        <h3 class="text-xs font-bold text-slate-300 uppercase tracking-widest">Kategori Layanan</h3>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        @php
+                            $services = [
+                                ['id' => 'makanan', 'label' => 'Jastip Makanan', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>', 'color' => 'indigo'],
+                                ['id' => 'print', 'label' => 'Print Tugas', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>', 'color' => 'purple'],
+                                ['id' => 'angkut', 'label' => 'Angkut Barang', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>', 'color' => 'emerald'],
+                                ['id' => 'lainnya', 'label' => 'Lainnya', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m12 4a2 2 0 100-4m0 4a2 2 0 110-4m-6 0a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m-6-2.5v2.5m-6-2.5v2.5M13 13.177V21h-2v-7.823l-5.23-5.23 1.414-1.414L12 11.35l4.816-4.816 1.414 1.414-5.23 5.23z"/>', 'color' => 'amber'],
+                            ];
+                        @endphp
+
+                        @foreach($services as $s)
+                        <label class="relative cursor-pointer group">
+                            <input type="radio" name="service_type" id="service_type_{{ $s['id'] }}" value="{{ $s['id'] }}" class="peer sr-only" {{ $s['id'] === 'makanan' ? 'checked' : '' }} onchange="toggleCustomService()">
+                            <div class="flex flex-col items-center justify-center gap-3 h-28 rounded-2xl border border-slate-700/50 bg-slate-800/20 peer-checked:border-indigo-500 peer-checked:bg-indigo-500/10 peer-checked:ring-1 peer-checked:ring-indigo-500/50 hover:bg-slate-800/40 transition-all duration-300">
+                                <div class="w-12 h-12 rounded-xl bg-slate-900/50 flex items-center justify-center text-slate-400 peer-checked:text-indigo-400 group-hover:scale-110 transition-transform">
+                                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">{!! $s['icon'] !!}</svg>
+                                </div>
+                                <span class="text-[10px] font-bold text-slate-500 peer-checked:text-white uppercase tracking-tight text-center">{{ $s['label'] }}</span>
                             </div>
                         </label>
-                        <label class="relative cursor-pointer">
-                            <input type="radio" name="service_type" value="print" class="peer sr-only" onchange="toggleCustomService()">
-                            <div class="flex flex-col items-center justify-center gap-2 h-20 rounded-xl border border-slate-700 bg-[#0f172a]/50 peer-checked:border-indigo-500 peer-checked:bg-indigo-500/10 hover:bg-[#0f172a] transition-all">
-                                <svg class="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-                                <span class="text-[11px] font-medium text-slate-400 peer-checked:text-indigo-200 text-center">Print Tugas</span>
-                            </div>
-                        </label>
-                        <label class="relative cursor-pointer">
-                            <input type="radio" name="service_type" value="angkut" class="peer sr-only" onchange="toggleCustomService()">
-                            <div class="flex flex-col items-center justify-center gap-2 h-20 rounded-xl border border-slate-700 bg-[#0f172a]/50 peer-checked:border-indigo-500 peer-checked:bg-indigo-500/10 hover:bg-[#0f172a] transition-all">
-                                <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-                                <span class="text-[11px] font-medium text-slate-400 peer-checked:text-indigo-200 text-center">Angkut Barang</span>
-                            </div>
-                        </label>
-                        <label class="relative cursor-pointer">
-                            <input type="radio" name="service_type" value="lainnya" id="radio_lainnya" class="peer sr-only" onchange="toggleCustomService()">
-                            <div class="flex flex-col items-center justify-center gap-2 h-20 rounded-xl border border-slate-700 bg-[#0f172a]/50 peer-checked:border-indigo-500 peer-checked:bg-indigo-500/10 hover:bg-[#0f172a] transition-all">
-                                <svg class="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m12 4a2 2 0 100-4m0 4a2 2 0 110-4m-6 0a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m-6-2.5v2.5m-6-2.5v2.5M13 13.177V21h-2v-7.823l-5.23-5.23 1.414-1.414L12 11.35l4.816-4.816 1.414 1.414-5.23 5.23z"/></svg>
-                                <span class="text-[11px] font-medium text-slate-400 peer-checked:text-indigo-200 text-center">Lainnya</span>
-                            </div>
-                        </label>
+                        @endforeach
                     </div>
                     
-                    {{-- Custom Service Input (Hidden by default) --}}
-                    <div id="custom_service_container" class="hidden mt-3">
-                        <input type="text" name="custom_service" id="custom_service" placeholder="Contoh: Beliin obat di apotek" class="w-full px-4 py-3 bg-[#0f172a] border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors text-[13px]">
-                    </div>
-
-                    @error('service_type')
-                        <p class="mt-1 text-xs text-red-400">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                {{-- WhatsApp --}}
-                <div>
-                    <label for="whatsapp_number" class="block text-[11px] font-bold text-slate-400 mb-1.5">No. WhatsApp</label>
-                    <input type="text" name="whatsapp_number" id="whatsapp_number" required placeholder="081234567890" value="{{ old('whatsapp_number') }}" class="w-full px-4 py-3 bg-[#0f172a] border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors text-[13px]">
-                    @error('whatsapp_number')
-                        <p class="mt-1 text-xs text-red-400">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                {{-- Details --}}
-                <div>
-                    <label for="details" class="block text-[11px] font-bold text-slate-400 mb-1.5">Detail Pesanan</label>
-                    <textarea name="details" id="details" rows="3" required placeholder="Contoh: Beliin nasi padang di bundaran, lauk ayam bakar..." class="w-full px-4 py-3 bg-[#0f172a] border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors resize-none text-[13px]">{{ old('details') }}</textarea>
-                    @error('details')
-                        <p class="mt-1 text-xs text-red-400">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                {{-- Locations --}}
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label for="pickup_location" class="block text-[11px] font-bold text-slate-400 mb-1.5">Lokasi Jemput/Beli</label>
-                        <input type="text" name="pickup_location" id="pickup_location" required placeholder="Warung Padang Bundaran" value="{{ old('pickup_location') }}" class="w-full px-4 py-3 bg-[#0f172a] border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors text-[13px]">
-                        @error('pickup_location')
-                            <p class="mt-1 text-xs text-red-400">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="dropoff_location" class="block text-[11px] font-bold text-slate-400 mb-1.5">Lokasi Antar</label>
-                        <input type="text" name="dropoff_location" id="dropoff_location" required placeholder="Fasilkom Gedung A" value="{{ old('dropoff_location') }}" class="w-full px-4 py-3 bg-[#0f172a] border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors text-[13px]">
-                        @error('dropoff_location')
-                            <p class="mt-1 text-xs text-red-400">{{ $message }}</p>
-                        @enderror
+                    <div id="custom_service_container" class="hidden mt-4">
+                        <input type="text" name="custom_service" id="custom_service" placeholder="Apa yang kamu butuhkan?" class="w-full px-6 py-4 bg-slate-950/50 border border-slate-700/50 rounded-2xl text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/50 transition-all text-sm">
                     </div>
                 </div>
 
-                {{-- Pricing --}}
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label for="item_price" class="block text-[11px] font-bold text-slate-400 mb-1.5">Estimasi Harga Barang</label>
-                        <div class="relative">
-                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-[13px] text-slate-400 font-semibold">Rp</span>
-                            <input type="number" name="item_price" id="item_price" min="0" step="500" placeholder="0" value="{{ old('item_price', 0) }}" class="w-full pl-11 pr-4 py-3 bg-[#0f172a] border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors text-[13px]">
+                {{-- Step 2: Information & Details --}}
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500 text-white text-[10px] font-black flex items-center justify-center">2</span>
+                            <h3 class="text-xs font-bold text-slate-300 uppercase tracking-widest">Kontak & Detail</h3>
                         </div>
-                        <p class="mt-1 text-[9px] text-slate-500 italic">Isi jika Mitra perlu menalangi barang.</p>
-                        @error('item_price')
-                            <p class="mt-1 text-xs text-red-400">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="bid_price" class="block text-[11px] font-bold text-slate-400 mb-1.5">Harga Tawaran (Ongkir)</label>
-                        <div class="relative">
-                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-[13px] text-slate-400 font-semibold">Rp</span>
-                            <input type="number" name="bid_price" id="bid_price" required min="1000" step="500" placeholder="5000" value="{{ old('bid_price') }}" class="w-full pl-11 pr-4 py-3 bg-[#0f172a] border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors text-[13px]">
+                        
+                        <div class="space-y-5">
+                            <div class="group">
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 ml-1">No. WhatsApp</label>
+                                <div class="relative">
+                                    <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-600 group-focus-within:text-purple-400 transition-colors">
+                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                    </span>
+                                    <input type="text" name="whatsapp_number" id="whatsapp_number" required placeholder="08..." value="{{ old('whatsapp_number') }}" class="w-full pl-11 pr-6 py-4 bg-slate-950/50 border border-slate-700/50 rounded-2xl text-white placeholder-slate-700 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500/50 transition-all text-sm">
+                                </div>
+                            </div>
+
+                            <div class="group">
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 ml-1">Keterangan Pesanan</label>
+                                <textarea name="details" id="details" rows="4" required placeholder="Jelaskan secara detail barang/jasa yang diinginkan..." class="w-full px-6 py-4 bg-slate-950/50 border border-slate-700/50 rounded-2xl text-white placeholder-slate-700 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500/50 transition-all text-sm resize-none">{{ old('details') }}</textarea>
+                            </div>
                         </div>
-                        <p class="mt-1 text-[9px] text-slate-500 italic">Upah/Jasa untuk Mitra.</p>
-                        @error('bid_price')
-                            <p class="mt-1 text-xs text-red-400">{{ $message }}</p>
-                        @enderror
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500 text-white text-[10px] font-black flex items-center justify-center">3</span>
+                            <h3 class="text-xs font-bold text-slate-300 uppercase tracking-widest">Lokasi & Biaya</h3>
+                        </div>
+
+                        <div class="space-y-5">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 ml-1">Lokasi Jemput</label>
+                                    <input type="text" name="pickup_location" id="pickup_location" required placeholder="Cth: Kantin Teknik" class="w-full px-4 py-4 bg-slate-950/50 border border-slate-700/50 rounded-xl text-white text-xs focus:border-emerald-500 outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 ml-1">Lokasi Antar</label>
+                                    <input type="text" name="dropoff_location" id="dropoff_location" required placeholder="Cth: Gedung A" class="w-full px-4 py-4 bg-slate-950/50 border border-slate-700/50 rounded-xl text-white text-xs focus:border-emerald-500 outline-none transition-all">
+                                </div>
+                            </div>
+
+                            <div class="p-6 rounded-[2rem] bg-slate-800/40 border border-slate-700/50 space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <div class="flex flex-col">
+                                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Harga Barang</label>
+                                        <span class="text-[9px] text-slate-600">Total belanja Mitra</span>
+                                    </div>
+                                    <div class="relative w-36">
+                                        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-600 font-bold">Rp</span>
+                                        <input type="number" name="item_price" id="item_price" value="0" class="w-full pl-9 pr-3 py-2.5 bg-slate-950/80 border border-slate-700/50 rounded-xl text-white text-sm outline-none focus:border-indigo-500">
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex flex-col">
+                                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Upah Jasa (Bid)</label>
+                                        <span class="text-[9px] text-slate-600">Keuntungan untuk Mitra</span>
+                                    </div>
+                                    <div class="relative w-36">
+                                        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[11px] text-slate-600 font-bold">Rp</span>
+                                        <input type="number" name="bid_price" id="bid_price" required placeholder="5000" class="w-full pl-9 pr-3 py-2.5 bg-slate-950/80 border border-slate-700/50 rounded-xl text-white text-sm outline-none focus:border-emerald-500">
+                                    </div>
+                                </div>
+                                <div class="h-px bg-slate-700/50 my-2"></div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Admin Maintenance</span>
+                                    <span class="text-xs font-bold text-indigo-400">Rp 1.000</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                {{-- Admin Fee Notice --}}
-                <div class="flex items-center gap-2.5 px-4 py-3 bg-[#2e1065]/40 border border-[#4c1d95]/50 rounded-xl">
-                    <svg class="w-4 h-4 text-purple-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    <p class="text-[11px] font-medium text-purple-200">Biaya Admin FLAT Rp 1.000</p>
-                </div>
-
-                {{-- Submit --}}
-                @auth
-                    @if(auth()->user()->role === 'customer')
-                        <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] hover:from-[#4f46e5] hover:to-[#9333ea] text-white font-bold text-sm rounded-xl shadow-[0_0_15px_rgba(99,102,241,0.3)] transition-all duration-200 mt-2">
-                            Pasrahin Sekarang! 🚀
-                        </button>
+                {{-- Action Button --}}
+                <div class="pt-6">
+                    @auth
+                        @if(auth()->user()->role === 'customer')
+                            <button type="submit" class="w-full py-6 bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 bg-[length:200%_auto] hover:bg-[100%_0] text-white font-black text-sm rounded-[2rem] shadow-2xl shadow-indigo-500/40 transition-all duration-500 flex items-center justify-center gap-3 group">
+                                PASRAHIN SEKARANG! 🚀
+                                <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </button>
+                        @else
+                            <div class="w-full py-6 bg-slate-800 text-slate-500 font-bold text-center rounded-[2rem] border border-slate-700/50 cursor-not-allowed">
+                                Hanya Customer yang bisa memesan
+                            </div>
+                        @endif
                     @else
-                        <div class="text-center py-3.5 bg-slate-800 border border-slate-700 text-slate-400 font-bold text-sm rounded-xl mt-2 cursor-not-allowed">
-                            Hanya Customer yang bisa memesan
-                        </div>
-                    @endif
-                @else
-                    <a href="{{ route('login') }}" class="block text-center w-full py-3.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm rounded-xl shadow-lg border border-slate-700 transition-all duration-200 mt-2">
-                        Login Dulu Untuk Memesan 🔒
-                    </a>
-                @endauth
+                        <a href="{{ route('login') }}" class="block w-full py-6 bg-slate-800 hover:bg-slate-700 text-white font-bold text-center rounded-[2rem] border border-slate-700/50 transition-all">
+                            Login Dulu Untuk Memesan 🔒
+                        </a>
+                    @endauth
+                </div>
             </form>
         </div>
     </div>
@@ -202,7 +265,7 @@
 @push('scripts')
 <script>
     function toggleCustomService() {
-        const isLainnya = document.getElementById('radio_lainnya').checked;
+        const isLainnya = document.getElementById('service_type_lainnya').checked;
         const container = document.getElementById('custom_service_container');
         const input = document.getElementById('custom_service');
         
