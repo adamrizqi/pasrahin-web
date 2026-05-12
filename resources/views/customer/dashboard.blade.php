@@ -31,7 +31,9 @@
                                 <span class="px-4 py-1.5 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-bold uppercase tracking-wider">Menunggu Mitra</span>
                             @elseif($order->status === 'in_progress')
                                 <span class="px-4 py-1.5 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-bold uppercase tracking-wider">Sedang Dikerjakan</span>
-                            @elseif($order->status === 'completed' || $order->status === 'paid_to_mitra')
+                            @elseif($order->status === 'completed')
+                                <span class="px-4 py-1.5 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-bold uppercase tracking-wider">Perlu Konfirmasi</span>
+                            @elseif($order->status === 'paid_to_mitra')
                                 <span class="px-4 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-bold uppercase tracking-wider">Selesai</span>
                             @endif
 
@@ -42,11 +44,23 @@
                             @endif
                         </div>
                         
-                        @if($order->status === 'in_progress')
-                            <a href="{{ route('chat.index', $order) }}" class="w-full flex items-center justify-center gap-2 px-4 py-2 mt-1 bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 border border-indigo-500/50 rounded-lg text-xs font-bold transition-colors">
-                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-                                Buka Chat
-                            </a>
+                        @if($order->status === 'in_progress' || $order->status === 'completed')
+                            <div class="flex flex-col gap-2 w-full">
+                                <a href="{{ route('chat.index', $order) }}" class="w-full flex items-center justify-center gap-2 px-4 py-2 mt-1 bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 border border-indigo-500/50 rounded-lg text-xs font-bold transition-colors">
+                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                                    Buka Chat
+                                </a>
+
+                                @if($order->status === 'completed')
+                                    <form action="{{ route('customer.orders.confirm', $order) }}" method="POST" class="w-full">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="w-full flex items-center justify-center gap-2 px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-white rounded-lg text-xs font-extrabold transition-all shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                                            Konfirmasi Terima ✓
+                                        </button>
+                                    </form>
+                                @endif
+                            </div>
                         @endif
                     </div>
 

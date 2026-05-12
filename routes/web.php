@@ -27,6 +27,7 @@ Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer
     Route::get('/dashboard', [CustomerController::class, 'dashboard'])->name('dashboard');
     Route::post('/payment/success/{order}', [CustomerController::class, 'paymentSuccess'])->name('payment.success');
     Route::delete('/orders/{order}', [CustomerController::class, 'cancelOrder'])->name('orders.cancel');
+    Route::patch('/orders/{order}/confirm', [CustomerController::class, 'confirmReceived'])->name('orders.confirm');
 });
 
 // Protected order creation

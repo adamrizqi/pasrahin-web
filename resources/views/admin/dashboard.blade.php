@@ -210,9 +210,13 @@
                                             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] font-bold bg-sky-50 text-sky-600">
                                                 <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> In Progress
                                             </span>
+                                        @elseif($order->status === 'finished')
+                                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] font-bold bg-amber-50 text-amber-600">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Finished
+                                            </span>
                                         @else
-                                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] font-bold bg-slate-50 text-slate-400">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Completed
+                                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] font-bold bg-emerald-50 text-emerald-600">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Completed
                                             </span>
                                         @endif
                                     </td>

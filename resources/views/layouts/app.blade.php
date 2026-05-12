@@ -42,10 +42,8 @@
         <nav class="border-b border-slate-800/60 bg-[#111827]/80 backdrop-blur-md px-6 md:px-10 py-5 flex flex-wrap items-center justify-between gap-4 relative z-10">
             <div class="flex items-center gap-8 lg:gap-16">
                 {{-- Logo --}}
-                <a href="/" class="flex items-center gap-2 group">
-                    <div class="w-6 h-6 border-2 border-indigo-400 rounded flex items-center justify-center">
-                        <div class="w-2.5 h-2.5 bg-indigo-400 rounded-sm"></div>
-                    </div>
+                <a href="/" class="flex items-center gap-3 group">
+                    <img src="{{ asset('logo.png') }}" alt="Logo" class="h-8 w-auto">
                     <span class="text-lg font-bold text-white tracking-tight group-hover:text-indigo-100 transition-colors">
                         Pasrah.in <span class="text-slate-500 font-normal">| Home</span>
                     </span>

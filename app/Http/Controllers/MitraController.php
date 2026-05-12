@@ -55,11 +55,7 @@ class MitraController extends Controller
 
         $order->update(['status' => 'completed']);
 
-        $mitra = auth()->user();
-        $mitra->balance += $order->bid_price;
-        $mitra->save();
-
-        return redirect()->route('mitra.dashboard')->with('success', 'Pesanan selesai! Saldo Anda telah bertambah.');
+        return redirect()->route('mitra.dashboard')->with('success', 'Pesanan ditandai selesai! Menunggu konfirmasi dari Customer untuk pencairan saldo.');
     }
 
     public function settings()

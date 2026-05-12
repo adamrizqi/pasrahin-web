@@ -199,10 +199,15 @@
                                             <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                                             Sedang Jalan
                                         </span>
-                                    @else
+                                    @elseif($order->status === 'finished')
+                                        <span class="px-2 py-1 bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[9px] font-bold rounded-md flex items-center gap-1.5">
+                                            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                            Menunggu Konfirmasi
+                                        </span>
+                                    @elseif($order->status === 'completed')
                                         <span class="px-2 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[9px] font-bold rounded-md flex items-center gap-1.5">
                                             <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                            Selesai
+                                            Selesai (Cair)
                                         </span>
                                     @endif
                                     <span class="text-[10px] text-slate-500 font-mono">#ORD-{{ str_pad($order->id, 3, '0', STR_PAD_LEFT) }}</span>
@@ -218,18 +223,24 @@
                                     <span class="text-[11px] font-bold text-white">Rp {{ number_format($order->bid_price, 0, ',', '.') }}</span>
                                 </div>
 
-                                @if($order->status === 'in_progress')
+                                @if($order->status === 'in_progress' || $order->status === 'completed')
                                     <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between gap-2">
                                         <a href="{{ route('chat.index', $order) }}" class="flex-1 text-center px-3 py-1.5 bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 border border-indigo-500/50 rounded-md text-[9px] font-bold transition-colors">
                                             Chat Cust
                                         </a>
-                                        <form action="{{ route('mitra.orders.complete', $order) }}" method="POST" class="flex-1">
-                                            @csrf
-                                            @method('PATCH')
-                                            <button type="submit" class="w-full px-3 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-white text-[9px] font-bold rounded-md shadow-lg shadow-emerald-500/20 transition-all">
+                                        @if($order->status === 'in_progress')
+                                            <form action="{{ route('mitra.orders.complete', $order) }}" method="POST" class="flex-1">
+                                                @csrf
+                                                @method('PATCH')
+                                                <button type="submit" class="w-full px-3 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-white text-[9px] font-bold rounded-md shadow-lg shadow-emerald-500/20 transition-all">
+                                                    Selesai ✓
+                                                </button>
+                                            </form>
+                                        @else
+                                            <div class="flex-1 text-center px-3 py-1.5 bg-slate-800 text-slate-500 border border-slate-700 rounded-md text-[9px] font-bold">
                                                 Selesai ✓
-                                            </button>
-                                        </form>
+                                            </div>
+                                        @endif
                                     </div>
                                 @endif
                             </div>

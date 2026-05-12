@@ -42,4 +42,26 @@ class CustomerController extends Controller
         $order->delete();
         return back()->with('success', 'Pesanan berhasil dibatalkan.');
     }
+
+    public function confirmReceived(Order $order)
+    {
+        if ($order->customer_id !== Auth::id()) {
+            abort(403);
+        }
+
+        if ($order->status !== 'completed') {
+            return back()->with('error', 'Pesanan belum diselesaikan oleh Mitra.');
+        }
+
+        $order->update(['status' => 'paid_to_mitra']);
+
+        // Add balance to Mitra
+        $mitra = $order->mitra;
+        if ($mitra) {
+            $mitra->balance += $order->bid_price;
+            $mitra->save();
+        }
+
+        return back()->with('success', 'Terima kasih! Pesanan telah selesai dan saldo telah diteruskan ke Mitra.');
+    }
 }
