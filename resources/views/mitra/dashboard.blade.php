@@ -113,13 +113,18 @@
                         <div class="bg-[#111827] border border-slate-700/60 rounded-2xl p-4 sm:p-6 shadow-xl flex flex-col sm:flex-row gap-6 hover:border-indigo-500/30 transition-colors">
                             {{-- Image placeholder --}}
                             <div class="w-full sm:w-28 h-28 flex-shrink-0 bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700/50 rounded-xl relative overflow-hidden flex items-center justify-center">
-                                <div class="absolute inset-0 bg-indigo-500/10 blur-xl"></div>
-                                <span class="text-4xl relative z-10 drop-shadow-lg">
-                                    @if($order->service_type === 'makanan') 🍔
-                                    @elseif($order->service_type === 'print') 🖨️
-                                    @elseif($order->service_type === 'angkut') 📦
-                                    @else ✨ @endif
-                                </span>
+                                <div class="absolute inset-0 bg-indigo-500/5 blur-xl"></div>
+                                <div class="relative z-10 flex flex-col items-center gap-1">
+                                    @if($order->service_type === 'makanan')
+                                        <svg class="w-10 h-10 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                                    @elseif($order->service_type === 'print')
+                                        <svg class="w-10 h-10 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                                    @elseif($order->service_type === 'angkut')
+                                        <svg class="w-10 h-10 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                                    @else
+                                        <svg class="w-10 h-10 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m12 4a2 2 0 100-4m0 4a2 2 0 110-4m-6 0a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m-6-2.5v2.5m-6-2.5v2.5M13 13.177V21h-2v-7.823l-5.23-5.23 1.414-1.414L12 11.35l4.816-4.816 1.414 1.414-5.23 5.23z"/></svg>
+                                    @endif
+                                </div>
                             </div>
 
                             {{-- Details --}}

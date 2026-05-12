@@ -67,13 +67,17 @@
                     {{-- Order Info --}}
                     <div class="flex-1">
                         <div class="flex items-center gap-2 mb-2">
-                            <span class="text-2xl">
-                                @if(in_array($order->service_type, ['makanan', 'print', 'angkut']))
-                                    {{ ['makanan' => '🍔', 'print' => '🖨️', 'angkut' => '📦'][$order->service_type] }}
+                            <div class="w-10 h-10 rounded-xl bg-slate-800/50 flex items-center justify-center border border-slate-700/50">
+                                @if($order->service_type === 'makanan')
+                                    <svg class="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                                @elseif($order->service_type === 'print')
+                                    <svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                                @elseif($order->service_type === 'angkut')
+                                    <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
                                 @else
-                                    ✨
+                                    <svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m12 4a2 2 0 100-4m0 4a2 2 0 110-4m-6 0a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m-6-2.5v2.5m-6-2.5v2.5M13 13.177V21h-2v-7.823l-5.23-5.23 1.414-1.414L12 11.35l4.816-4.816 1.414 1.414-5.23 5.23z"/></svg>
                                 @endif
-                            </span>
+                            </div>
                             <h3 class="text-lg font-bold text-white capitalize">
                                 {{ $order->service_type === 'makanan' ? 'Jastip Makanan' : ($order->service_type === 'print' ? 'Print Tugas' : ($order->service_type === 'angkut' ? 'Angkut Barang' : $order->service_type)) }}
                             </h3>
