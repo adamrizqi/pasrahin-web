@@ -16,6 +16,7 @@ class Order extends Model
         'pickup_location',
         'dropoff_location',
         'bid_price',
+        'item_price',
         'admin_fee',
         'payment_status',
         'snap_token',
@@ -26,6 +27,7 @@ class Order extends Model
     {
         return [
             'bid_price' => 'decimal:2',
+            'item_price' => 'decimal:2',
             'admin_fee' => 'decimal:2',
         ];
     }

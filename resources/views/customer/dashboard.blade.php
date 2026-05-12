@@ -97,9 +97,26 @@
                     </div>
 
                     {{-- Action / Price --}}
-                    <div class="flex-shrink-0 w-full md:w-48 bg-[#0f172a]/50 border border-slate-700/50 rounded-2xl p-4 text-center md:text-right">
-                        <p class="text-xs text-slate-500 font-medium mb-1">Total Tagihan</p>
-                        <p class="text-xl font-bold text-white mb-4">Rp {{ number_format($order->bid_price + $order->admin_fee, 0, ',', '.') }}</p>
+                    <div class="flex-shrink-0 w-full md:w-56 bg-[#0f172a]/50 border border-slate-700/50 rounded-2xl p-4 text-left md:text-right">
+                        <div class="space-y-1 mb-3">
+                            @if($order->item_price > 0)
+                                <div class="flex justify-between md:justify-end gap-3 text-[11px] text-slate-400">
+                                    <span>Barang:</span>
+                                    <span class="font-bold">Rp {{ number_format($order->item_price, 0, ',', '.') }}</span>
+                                </div>
+                            @endif
+                            <div class="flex justify-between md:justify-end gap-3 text-[11px] text-slate-400">
+                                <span>Ongkir:</span>
+                                <span class="font-bold">Rp {{ number_format($order->bid_price, 0, ',', '.') }}</span>
+                            </div>
+                            <div class="flex justify-between md:justify-end gap-3 text-[11px] text-slate-400">
+                                <span>Admin:</span>
+                                <span class="font-bold">Rp {{ number_format($order->admin_fee, 0, ',', '.') }}</span>
+                            </div>
+                        </div>
+                        <div class="h-px bg-slate-700/50 mb-3"></div>
+                        <p class="text-xs text-slate-500 font-medium mb-1">Total Bayar</p>
+                        <p class="text-xl font-bold text-white mb-4">Rp {{ number_format($order->bid_price + $order->item_price + $order->admin_fee, 0, ',', '.') }}</p>
                         
                         @if($order->payment_status === 'unpaid')
                             <button onclick="payMidtrans({{ $order->id }}, '{{ $order->snap_token }}')" class="w-full py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-400 hover:to-purple-400 text-white font-bold text-xs rounded-xl shadow-[0_0_15px_rgba(99,102,241,0.3)] transition-all">

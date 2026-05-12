@@ -28,6 +28,7 @@ class OrderController extends Controller
             'pickup_location' => 'required|string',
             'dropoff_location' => 'required|string',
             'bid_price' => 'required|numeric|min:1000',
+            'item_price' => 'nullable|numeric|min:0',
         ]);
 
         $serviceType = $validated['service_type'] === 'lainnya' ? $validated['custom_service'] : $validated['service_type'];
@@ -40,6 +41,7 @@ class OrderController extends Controller
             'pickup_location' => $validated['pickup_location'],
             'dropoff_location' => $validated['dropoff_location'],
             'bid_price' => $validated['bid_price'],
+            'item_price' => $validated['item_price'] ?? 0,
             'admin_fee' => 1000,
             'payment_status' => 'unpaid',
             'status' => 'pending',
@@ -58,7 +60,7 @@ class OrderController extends Controller
         $params = array(
             'transaction_details' => array(
                 'order_id' => 'ORD-' . $order->id . '-' . time(),
-                'gross_amount' => (int) ($order->bid_price + $order->admin_fee),
+                'gross_amount' => (int) ($order->bid_price + $order->item_price + $order->admin_fee),
             ),
             'customer_details' => array(
                 'first_name' => auth()->user()->name ?? 'Customer',

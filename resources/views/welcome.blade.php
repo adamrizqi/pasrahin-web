@@ -145,16 +145,30 @@
                     </div>
                 </div>
 
-                {{-- Bid Price --}}
-                <div>
-                    <label for="bid_price" class="block text-[11px] font-bold text-slate-400 mb-1.5">Harga Tawaran (Bid Price)</label>
-                    <div class="relative">
-                        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-[13px] text-slate-400 font-semibold">Rp</span>
-                        <input type="number" name="bid_price" id="bid_price" required min="1000" step="500" placeholder="5000" value="{{ old('bid_price') }}" class="w-full pl-11 pr-4 py-3 bg-[#0f172a] border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors text-[13px]">
+                {{-- Pricing --}}
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="item_price" class="block text-[11px] font-bold text-slate-400 mb-1.5">Estimasi Harga Barang</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-[13px] text-slate-400 font-semibold">Rp</span>
+                            <input type="number" name="item_price" id="item_price" min="0" step="500" placeholder="0" value="{{ old('item_price', 0) }}" class="w-full pl-11 pr-4 py-3 bg-[#0f172a] border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors text-[13px]">
+                        </div>
+                        <p class="mt-1 text-[9px] text-slate-500 italic">Isi jika Mitra perlu menalangi barang.</p>
+                        @error('item_price')
+                            <p class="mt-1 text-xs text-red-400">{{ $message }}</p>
+                        @enderror
                     </div>
-                    @error('bid_price')
-                        <p class="mt-1 text-xs text-red-400">{{ $message }}</p>
-                    @enderror
+                    <div>
+                        <label for="bid_price" class="block text-[11px] font-bold text-slate-400 mb-1.5">Harga Tawaran (Ongkir)</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-[13px] text-slate-400 font-semibold">Rp</span>
+                            <input type="number" name="bid_price" id="bid_price" required min="1000" step="500" placeholder="5000" value="{{ old('bid_price') }}" class="w-full pl-11 pr-4 py-3 bg-[#0f172a] border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors text-[13px]">
+                        </div>
+                        <p class="mt-1 text-[9px] text-slate-500 italic">Upah/Jasa untuk Mitra.</p>
+                        @error('bid_price')
+                            <p class="mt-1 text-xs text-red-400">{{ $message }}</p>
+                        @enderror
+                    </div>
                 </div>
 
                 {{-- Admin Fee Notice --}}

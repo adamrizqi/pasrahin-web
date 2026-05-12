@@ -158,6 +158,11 @@
 
                                 {{-- Price & Action positioned absolutely on sm screens --}}
                                 <div class="mt-4 sm:mt-0 sm:absolute sm:top-0 sm:right-0 flex flex-col items-end">
+                                    @if($order->item_price > 0)
+                                        <div class="flex items-center gap-1.5 mb-1">
+                                            <span class="text-[10px] font-bold text-slate-400">Brng: Rp {{ number_format($order->item_price, 0, ',', '.') }}</span>
+                                        </div>
+                                    @endif
                                     <div class="flex items-baseline gap-1 mb-4">
                                         <span class="text-lg font-bold text-white">Rp {{ number_format($order->bid_price, 0, ',', '.') }}</span>
                                         <span class="text-[10px] text-slate-500 font-medium">ongkir</span>
@@ -217,10 +222,23 @@
                                 
                                 <div class="flex items-center justify-between mt-auto">
                                     <div class="text-[10px]">
-                                        <span class="text-slate-500">Tujuan:</span>
-                                        <span class="text-slate-300 ml-1 line-clamp-1">{{ $order->dropoff_location }}</span>
+                                        <div class="flex flex-col gap-0.5">
+                                            <div class="flex gap-1.5">
+                                                <span class="text-slate-500">Tujuan:</span>
+                                                <span class="text-slate-300 font-medium">{{ $order->dropoff_location }}</span>
+                                            </div>
+                                            @if($order->item_price > 0)
+                                                <div class="flex gap-1.5">
+                                                    <span class="text-slate-500">Barang:</span>
+                                                    <span class="text-slate-300 font-bold">Rp {{ number_format($order->item_price, 0, ',', '.') }}</span>
+                                                </div>
+                                            @endif
+                                        </div>
                                     </div>
-                                    <span class="text-[11px] font-bold text-white">Rp {{ number_format($order->bid_price, 0, ',', '.') }}</span>
+                                    <div class="text-right">
+                                        <span class="text-[11px] font-bold text-indigo-400">Rp {{ number_format($order->bid_price, 0, ',', '.') }}</span>
+                                        <div class="text-[8px] text-slate-500 uppercase font-bold tracking-wider">Ongkir</div>
+                                    </div>
                                 </div>
 
                                 @if($order->status === 'in_progress' || $order->status === 'completed')
