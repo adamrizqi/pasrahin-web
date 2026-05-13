@@ -28,6 +28,7 @@ Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer
     Route::post('/payment/success/{order}', [CustomerController::class, 'paymentSuccess'])->name('payment.success');
     Route::delete('/orders/{order}', [CustomerController::class, 'cancelOrder'])->name('orders.cancel');
     Route::patch('/orders/{order}/confirm', [CustomerController::class, 'confirmReceived'])->name('orders.confirm');
+    Route::get('/orders/check-updates', [CustomerController::class, 'checkUpdates'])->name('orders.check-updates');
 });
 
 // Protected order creation
@@ -48,6 +49,7 @@ Route::middleware(['auth', 'role:mitra'])->prefix('mitra')->name('mitra.')->grou
 Route::middleware(['auth'])->group(function () {
     Route::get('/orders/{order}/chat', [\App\Http\Controllers\ChatController::class, 'index'])->name('chat.index');
     Route::post('/orders/{order}/chat', [\App\Http\Controllers\ChatController::class, 'store'])->name('chat.store');
+    Route::get('/orders/{order}/chat/check', [\App\Http\Controllers\ChatController::class, 'checkNewMessages'])->name('chat.check');
 });
 
 // ─── Admin Routes ────────────────────────────────────────────────

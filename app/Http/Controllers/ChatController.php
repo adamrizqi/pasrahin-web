@@ -59,4 +59,25 @@ class ChatController extends Controller
 
         return back();
     }
+
+    public function checkNewMessages(Request $request, Order $order)
+    {
+        $user = Auth::user();
+        if ($user->id !== $order->customer_id && $user->id !== $order->mitra_id) {
+            return response()->json(['error' => 'Unauthorized'], 403);
+        }
+
+        $lastCheck = $request->query('last_check');
+        if (!$lastCheck) {
+            return response()->json(['hasNew' => false]);
+        }
+
+        // Cek apakah ada pesan baru dari lawan bicara sejak pengecekan terakhir
+        $hasNew = $order->messages()
+            ->where('sender_id', '!=', $user->id)
+            ->where('created_at', '>', $lastCheck)
+            ->exists();
+
+        return response()->json(['hasNew' => $hasNew]);
+    }
 }

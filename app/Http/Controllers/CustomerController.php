@@ -73,4 +73,19 @@ class CustomerController extends Controller
 
         return back()->with('success', 'Terima kasih! Pesanan telah selesai dan saldo telah diteruskan ke Mitra.');
     }
+
+    public function checkUpdates(Request $request)
+    {
+        $lastCheck = $request->query('last_check');
+        
+        if (!$lastCheck) {
+            return response()->json(['updated' => false]);
+        }
+
+        $hasUpdates = Order::where('customer_id', Auth::id())
+            ->where('updated_at', '>', $lastCheck)
+            ->exists();
+
+        return response()->json(['updated' => $hasUpdates]);
+    }
 }

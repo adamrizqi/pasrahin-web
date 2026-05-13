@@ -207,4 +207,24 @@
         });
     }
 </script>
+
+<script>
+    // AJAX Polling for Real-Time Updates
+    // Gunakan waktu saat halaman ini dimuat sebagai patokan awal
+    const lastCheckTime = '{{ now()->toDateTimeString() }}';
+    
+    // Set interval untuk mengecek setiap 5 detik (5000 milidetik)
+    setInterval(() => {
+        fetch(`{{ route('customer.orders.check-updates') }}?last_check=${lastCheckTime}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.updated) {
+                    // Jika ada update (misal status pesanan berubah), refresh halaman otomatis
+                    console.log('Update found! Refreshing page...');
+                    window.location.reload();
+                }
+            })
+            .catch(error => console.error('Error checking updates:', error));
+    }, 5000);
+</script>
 @endpush

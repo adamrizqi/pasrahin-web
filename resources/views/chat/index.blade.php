@@ -180,11 +180,21 @@
         }
     });
 
+    // AJAX Polling: Hanya refresh jika ada pesan baru dari lawan bicara
+    const lastCheckTime = '{{ now()->toDateTimeString() }}';
     setInterval(() => {
-        // Only refresh if user hasn't typed anything, no file is selected, document is visible, and not currently selecting a file
+        // Hanya cek jika user tidak sedang mengetik, tidak sedang pilih file, dan halaman sedang dibuka (visible)
         if (tx.value.trim() === '' && fileInput.files.length === 0 && !isSelectingFile && document.visibilityState === 'visible') {
-            location.reload();
+            fetch(`{{ route('chat.check', $order) }}?last_check=${lastCheckTime}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.hasNew) {
+                        // Ada pesan baru! Refresh untuk menampilkannya
+                        location.reload();
+                    }
+                })
+                .catch(error => console.error('Error checking chat updates:', error));
         }
-    }, 5000);
+    }, 4000); // Cek setiap 4 detik agar cukup responsif
 </script>
 @endpush
