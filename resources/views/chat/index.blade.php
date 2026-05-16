@@ -41,16 +41,16 @@
                         {{ $isMine ? 'Anda' : $msg->sender->name }} • {{ $msg->created_at->timezone('Asia/Jakarta')->format('H:i') }} WIB
                     </span>
                     
-                    <div class="rounded-2xl px-5 py-3 shadow-sm relative group {{ $isMine ? 'bg-indigo-600 text-white rounded-tr-sm' : 'bg-white text-slate-700 border border-slate-200 rounded-tl-sm' }}">
+                    <div class="rounded-2xl px-5 py-3 shadow-sm relative group {{ $isMine ? 'bg-brand-500 text-white rounded-tr-sm' : 'bg-white text-slate-700 border border-slate-200 rounded-tl-sm' }}">
                         
                         @if($msg->message)
                             <p class="text-sm leading-relaxed whitespace-pre-wrap">{{ $msg->message }}</p>
                         @endif
 
                         @if($msg->file_path)
-                            <div class="{{ $msg->message ? 'mt-3 pt-3 border-t ' . ($isMine ? 'border-indigo-500/50' : 'border-slate-100') : '' }}">
-                                <a href="{{ Storage::url($msg->file_path) }}" target="_blank" class="flex items-center gap-3 p-2 rounded-xl {{ $isMine ? 'bg-indigo-700/50 hover:bg-indigo-700' : 'bg-slate-50 hover:bg-slate-100' }} transition-colors">
-                                    <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 {{ $isMine ? 'bg-indigo-500/50 text-indigo-200' : 'bg-slate-200 text-slate-500' }}">
+                            <div class="{{ $msg->message ? 'mt-3 pt-3 border-t ' . ($isMine ? 'border-brand-400/50' : 'border-slate-100') : '' }}">
+                                <a href="{{ Storage::url($msg->file_path) }}" target="_blank" class="flex items-center gap-3 p-2 rounded-xl {{ $isMine ? 'bg-brand-600/50 hover:bg-brand-600' : 'bg-slate-50 hover:bg-slate-100' }} transition-colors">
+                                    <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 {{ $isMine ? 'bg-brand-500/50 text-brand-100' : 'bg-slate-200 text-slate-500' }}">
                                         @if(preg_match('/\.(jpg|jpeg|png|gif)$/i', $msg->file_path))
                                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                                         @else
@@ -58,8 +58,8 @@
                                         @endif
                                     </div>
                                     <div class="overflow-hidden">
-                                        <p class="text-xs font-bold truncate {{ $isMine ? 'text-indigo-50' : 'text-slate-700' }}">{{ $msg->file_name }}</p>
-                                        <p class="text-[10px] {{ $isMine ? 'text-indigo-300' : 'text-slate-400' }}">Klik untuk melihat/unduh</p>
+                                        <p class="text-xs font-bold truncate {{ $isMine ? 'text-brand-50' : 'text-slate-700' }}">{{ $msg->file_name }}</p>
+                                        <p class="text-[10px] {{ $isMine ? 'text-brand-200' : 'text-slate-400' }}">Klik untuk melihat/unduh</p>
                                     </div>
                                 </a>
                             </div>
@@ -109,10 +109,10 @@
                     </button>
                 </div>
                 
-                <textarea name="message" id="message" rows="1" class="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all resize-none text-sm" placeholder="Ketik pesan Anda..."></textarea>
+                <textarea name="message" id="message" rows="1" class="w-full px-5 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all resize-none text-sm" placeholder="Ketik pesan Anda..."></textarea>
             </div>
 
-            <button type="submit" class="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:opacity-90 text-white flex items-center justify-center flex-shrink-0 shadow-lg shadow-indigo-500/30 transition-all transform hover:scale-105" id="submit-btn">
+            <button type="submit" class="w-12 h-12 rounded-full bg-brand-500 hover:bg-brand-600 text-white flex items-center justify-center flex-shrink-0 shadow-lg shadow-brand-500/25 transition-all transform hover:scale-105" id="submit-btn">
                 <svg class="w-5 h-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
             </button>
         </form>

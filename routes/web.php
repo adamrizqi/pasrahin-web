@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 // ─── Public Routes ───────────────────────────────────────────────
 Route::get('/', [OrderController::class, 'create'])->name('home');
+Route::view('/services', 'services')->name('services');
 
 // ─── Unified Auth Routes ─────────────────────────────────────────
 Route::middleware('guest')->group(function () {

@@ -34,7 +34,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return $this->redirectBasedOnRole(Auth::user()->role)->with('success', 'Berhasil login!');
+            return $this->redirectBasedOnRole(Auth::user()->role);
         }
 
         return back()->withErrors([
@@ -69,7 +69,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/')->with('success', 'Berhasil logout.');
+        return redirect('/');
     }
 
     private function redirectBasedOnRole($role)
